@@ -1,20 +1,70 @@
 package org.example;
 
 public class Libro {
-    private static final int cantidadDeLibros = 0;
-    private static final int librisDisponibles = 0;
-    private static final boolean Disponibles = true;
+    private static int cantidadDeLibros = 0;
+    private static int librosDisponibles = 0;
+    private static final String CADENA_ID = "LIB";
     private String titulo;
     private String autor;
     private String ID;
+    private boolean disponibles;
 
-    public Libro (String titulo, String autor, String ID){
+
+
+    private Estudiante estudiantePrestado;
+
+    public Libro (String titulo, String autor){
         this.titulo = titulo;
         this.autor = autor;
-        this.ID = ID;
+        disponibles = true;
+        cantidadDeLibros++;
+        librosDisponibles++;
+        ID = generarID();
+        estudiantePrestado = null;
     }
-    public Libro(){
 
+    public void prestar(Estudiante estudiante){
+        if (disponibles && estudiante.getLibro() != null){
+            disponibles=false;
+            System.out.println("El libro " + titulo + " ha sido prestado " + estudiante.getNombre() + " de " + estudiante.getCurso());
+            librosDisponibles--;
+            estudiantePrestado = estudiante;
+            estudiante.setLibro(this);
+        } else if (estudiante.getLibro() == null) {
+
+
+        } else {
+            System.out.println("El libro " + titulo + " no esta disponible");
+        }
+
+    }
+
+    public void devolver(){
+        if (disponibles){
+            disponibles = true;
+            System.out.println("El libro " + titulo + " ha sido devuelto " + estudiantePrestado.getNombre() + " de " + estudiantePrestado.getCurso());
+            librosDisponibles++;
+            estudiantePrestado.setLibro(null);
+            estudiantePrestado = null;
+        }else {
+            System.out.println("El libro " + titulo + " esta disponible. no se puede devolver");
+        }
+    }
+
+    public boolean disponible(){
+        return disponibles;
+    }
+
+    public static int getTotallibros(){
+        return cantidadDeLibros;
+    }
+
+    public static int getLibrosDisponibles(){
+        return librosDisponibles;
+    }
+
+    private String generarID(){
+        return CADENA_ID+cantidadDeLibros;
     }
 
     public String getTitulo() {
@@ -39,5 +89,28 @@ public class Libro {
 
     public void setID(String ID) {
         this.ID = ID;
+    }
+
+    public boolean isDisponibles() {
+        return disponibles;
+    }
+
+    public void setDisponibles(boolean disponibles) {
+        this.disponibles = disponibles;
+    }
+
+    public Estudiante getEstudiantePrestado() {
+        return estudiantePrestado;
+    }
+
+    @Override
+    public String toString() {
+        return "Libro{" +
+                "titulo='" + titulo + '\'' +
+                ", autor='" + autor + '\'' +
+                ", ID='" + ID + '\'' +
+                ", disponibles=" + disponibles +
+                ", estudiante=" + estudiantePrestado +
+                '}';
     }
 }

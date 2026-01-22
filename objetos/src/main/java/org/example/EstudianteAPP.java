@@ -8,5 +8,12 @@ public class EstudianteAPP {
 
         System.out.println(raul.getNia());
         System.out.println(jorge);
+
+        Libro divina_comedia = new Libro("divina comedia", "dante");
+
+        divina_comedia.getEstudiantePrestado();
+        divina_comedia.prestar(jorge);
+
+        System.out.println(divina_comedia);
     }
 }
