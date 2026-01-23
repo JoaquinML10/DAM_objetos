@@ -1,4 +1,4 @@
-package org.example;
+package Biblio;
 
 public class Libro {
     private static int cantidadDeLibros = 0;
@@ -8,12 +8,10 @@ public class Libro {
     private String autor;
     private String ID;
     private boolean disponibles;
-
-
-
     private Estudiante estudiantePrestado;
+    private Editorial editorial;
 
-    public Libro (String titulo, String autor){
+    public Libro (String titulo, String autor, Editorial editorial){
         this.titulo = titulo;
         this.autor = autor;
         disponibles = true;
@@ -21,6 +19,7 @@ public class Libro {
         librosDisponibles++;
         ID = generarID();
         estudiantePrestado = null;
+        this.editorial = editorial;
     }
 
     public void prestar(Estudiante estudiante){
@@ -31,8 +30,7 @@ public class Libro {
             estudiantePrestado = estudiante;
             estudiante.setLibro(this);
         } else if (estudiante.getLibro() == null) {
-
-
+            System.out.println("El estudiante " + estudiante.getNombre() + " Ya tiene el libro prestado");
         } else {
             System.out.println("El libro " + titulo + " no esta disponible");
         }
@@ -103,6 +101,14 @@ public class Libro {
         return estudiantePrestado;
     }
 
+    public Editorial getEditorial() {
+        return editorial;
+    }
+
+    public void setEditorial(Editorial editorial) {
+        this.editorial = editorial;
+    }
+
     @Override
     public String toString() {
         return "Libro{" +
@@ -111,6 +117,7 @@ public class Libro {
                 ", ID='" + ID + '\'' +
                 ", disponibles=" + disponibles +
                 ", estudiante=" + estudiantePrestado +
+                ", editorial= " + editorial +
                 '}';
     }
 }

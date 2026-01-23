@@ -1,4 +1,4 @@
-package org.example;
+package Biblio;
 
 public class EstudianteAPP {
     static void main(String[] args) {
@@ -9,11 +9,13 @@ public class EstudianteAPP {
         System.out.println(raul.getNia());
         System.out.println(jorge);
 
-        Libro divina_comedia = new Libro("divina comedia", "dante");
+        Editorial milenium = new Editorial("Milenius", "Espeaña");
+        Libro divina_comedia = new Libro("divina comedia", "dante", milenium);
 
         divina_comedia.getEstudiantePrestado();
         divina_comedia.prestar(jorge);
 
         System.out.println(divina_comedia);
+
     }
 }
