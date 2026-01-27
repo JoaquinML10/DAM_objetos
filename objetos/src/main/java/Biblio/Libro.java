@@ -22,19 +22,23 @@ public class Libro {
         this.editorial = editorial;
     }
 
-    public void prestar(Estudiante estudiante){
-        if (disponibles && estudiante.getLibro() != null){
+    public Prestamo prestar(Estudiante estudiante){
+        Prestamo prestamo = null;
+        if (disponibles && estudiante.getLibro() == null){
             disponibles=false;
             System.out.println("El libro " + titulo + " ha sido prestado " + estudiante.getNombre() + " de " + estudiante.getCurso());
             librosDisponibles--;
             estudiantePrestado = estudiante;
             estudiante.setLibro(this);
+            prestamo = new Prestamo(this,estudiante);
+            System.out.println("prestamo realizado");
         } else if (estudiante.getLibro() == null) {
             System.out.println("El estudiante " + estudiante.getNombre() + " Ya tiene el libro prestado");
         } else {
             System.out.println("El libro " + titulo + " no esta disponible");
         }
 
+        return prestamo;
     }
 
     public void devolver(){
