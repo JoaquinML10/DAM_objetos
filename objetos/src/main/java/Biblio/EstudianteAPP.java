@@ -10,13 +10,18 @@ public class EstudianteAPP {
         System.out.println(jorge);
 
         Editorial milenium = new Editorial("Milenius", "Espeaña");
+
         Libro divina_comedia = new Libro("divina comedia", "dante", milenium);
+
         Prestamo p1 = divina_comedia.prestar(jorge);
+
         System.out.println("Fecha prestamo: " + p1.getFecha());
-        divina_comedia.getEstudiantePrestado();
+
+        System.out.println(jorge.getListalibto());
+
         divina_comedia.prestar(jorge);
 
-        System.out.println(divina_comedia);
+
 
     }
 }

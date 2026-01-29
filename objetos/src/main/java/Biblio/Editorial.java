@@ -1,12 +1,20 @@
 package Biblio;
 
+import java.util.ArrayList;
+
 public class Editorial {
     private String nombre;
     private String pais;
+    private ArrayList<Libro> listalibros;
 
     public Editorial(String nombre, String pais) {
         this.nombre = nombre;
         this.pais = pais;
+        listalibros = new ArrayList<>();
+    }
+
+    public Editorial (){
+        this("","");
     }
 
 
