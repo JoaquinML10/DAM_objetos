@@ -17,8 +17,6 @@ public class Editorial {
         this("","");
     }
 
-
-
     public String getNombre() {
         return nombre;
     }
