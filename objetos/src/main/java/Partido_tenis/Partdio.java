@@ -46,6 +46,10 @@ public class Partdio {
         this.listaSets = listaSets;
     }
 
+    public void mostrarPartdo(){
+        System.out.println("Partido creado entre " + getJugador1() + " y " + getJugador2());
+    }
+
     @Override
     public String toString() {
         return "Partdio{" +
