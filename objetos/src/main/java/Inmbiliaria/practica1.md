@@ -16,6 +16,7 @@
 ![](img/nose.png)
 
 #### Codigo PlantUML
+´´´´
 @startuml
 package Biblio {
 
@@ -86,6 +87,7 @@ Prestamo "1" o--> "1" Estudiante
 
 }
 @enduml
+´´´´
 
 #### Contenido clases (.java)
 
