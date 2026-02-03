@@ -17,5 +17,7 @@ public class PartidoApp {
 
         nuevose.controlarPuntos(6,0);
 
+
+
     }
 }
