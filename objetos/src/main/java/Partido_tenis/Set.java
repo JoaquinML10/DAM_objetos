@@ -24,6 +24,7 @@ public class Set {
                 return;
             }
         }
+        System.out.println("Set creado perfectamente");
         return;
     }
 
