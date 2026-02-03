@@ -8,6 +8,7 @@
 5. [Entrega].().
 
 ### 1. Intro
+> La practica consiste n una app ...
 
 ### 2. Estrucutra de clase
 
