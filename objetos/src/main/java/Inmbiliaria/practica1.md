@@ -13,7 +13,7 @@
 ### 2. Estrucutra de clase
 
 #### Diagrama de clases UML
-![].()
+![].(img/nose)
 
 ### 3. Programa principal (InmobiliariaApp)
 
