@@ -6,8 +6,12 @@ public class PartidoApp {
         Jugador raul = new Jugador("raul",5);
 
         Partdio copaleche = new Partdio(jorge,raul);
+
         Set nuevose = new Set(7,4);
+
         nuevose.controlarPuntos(7,5);
+
+        nuevose.controlarPuntos(6,0);
 
     }
 }
