@@ -12,6 +12,9 @@
 
 ### 2. Estrucutra de clase
 
+#### Diagrama de clases UML
+![].()
+
 ### 3. Programa principal (InmobiliariaApp)
 
 ### 4. Purebas
