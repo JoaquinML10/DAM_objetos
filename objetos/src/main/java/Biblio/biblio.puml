@@ -1,0 +1,74 @@
+@startuml
+package Biblio {
+
+class Editorial {
+    - nombre : String
+    - pais : String
+    - listalibros : ArrayList<Libro>
+    + Editorial(nombre : String, pais : String)
+    + Editorial()
+    + getNombre() : String
+    + setNombre(nombre : String)
+    + getPais() : String
+    + setPais(pais : String)
+    + toString() : String
+}
+
+class Estudiante {
+    - CORREO_FORMAT : String
+    - contadorestudiantes : int
+    - curso : String
+    - nia : int
+    - gmail : String
+    - nombre : String
+    - listalibto : ArrayList<Libro>
+    + Estudiante(nombre : String, curso : String, gmail : String)
+    + Estudiante(nombre : String)
+    + validarCorreo(gmail : String) : boolean
+    + insertarLibro(libro : Libro)
+    + borrarLibro(libro : Libro)
+    + getListalibto() : ArrayList<Libro>
+    + toString() : String
+}
+
+class Libro {
+    - cantidadDeLibros : int
+    - librosDisponibles : int
+    - CADENA_ID : String
+    - titulo : String
+    - autor : String
+    - ID : String
+    - disponibles : boolean
+    - estudiantePrestado : Estudiante
+    - editorial : Editorial
+    + Libro(titulo : String, autor : String, editorial : Editorial)
+    + prestar(estudiante : Estudiante) : Prestamo
+    + devolver()
+    + disponible() : boolean
+    + getTotallibros() : int
+    + getLibrosDisponibles() : int
+    + toString() : String
+}
+
+class Prestamo {
+    - libro : Libro
+    - estudiante : Estudiante
+    - fecha : LocalDateTime
+    + Prestamo(libro : Libro, estudiante : Estudiante)
+    + getLibro() : Libro
+    + getEstudiante() : Estudiante
+    + getFecha() : LocalDateTime
+    + toString() : String
+}
+
+Editorial "1" -- "*" Libro : publica >
+Estudiante "1" *--> "*" Libro : >
+Prestamo "1" o--> "1" Libro
+Prestamo "1" o--> "1" Estudiante
+
+}
+@enduml
+
+
+
+@enduml
