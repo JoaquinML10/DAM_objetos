@@ -1,11 +1,11 @@
 ## Practica 1. Practica de cpmpra-venta de casas
 
 ## INDICE
-1. [Intro]().
-2. [Estructura de clases]().
-3. [Progama principal (Inmobiliaria APP)]().
-4. [Pruebas]().
-5. [Entrega]().
+1. [Intro](https://github.com/JoaquinML10/DAM_objetos/blob/main/objetos/src/main/java/Inmbiliaria/practica1.md#1-intro).
+2. [Estructura de clases](https://github.com/JoaquinML10/DAM_objetos/blob/main/objetos/src/main/java/Inmbiliaria/practica1.md#2-estrucutra-de-clase).
+3. [Progama principal (Inmobiliaria APP)](https://github.com/JoaquinML10/DAM_objetos/blob/main/objetos/src/main/java/Inmbiliaria/practica1.md#3-programa-principal-inmobiliariaapp).
+4. [Pruebas](https://github.com/JoaquinML10/DAM_objetos/blob/main/objetos/src/main/java/Inmbiliaria/practica1.md#4-purebas).
+5. [Entrega](https://github.com/JoaquinML10/DAM_objetos/blob/main/objetos/src/main/java/Inmbiliaria/practica1.md#5-entregas).
 
 ### 1. Intro
 > La practica consiste n una app ...
