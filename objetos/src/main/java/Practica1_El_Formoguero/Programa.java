@@ -11,6 +11,14 @@ public class Programa {
     private ArrayList<Invitado> listaInvitados;
     private Empleado director;
 
+    public Programa(String nombre, Cadena cadena, Empleado director){
+        this.nombre = nombre;
+        this.cadena = cadena;
+        this.director = director;
+        listaEmpleados = new ArrayList<>();
+        listaInvitados = new ArrayList<>();
+    }
+
     public String getNombre() {
         return nombre;
     }
