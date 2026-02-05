@@ -28,16 +28,33 @@ public class Instituto {
 
     }
 
-    public void duplicados_Curso(Curso curso){
+    public void agregarCurso(Curso curso){
+        if (curso == null){
+            System.out.println("No se puede agregar este curso porque esta null esta null");
+            return;
+        }
+
         for (Curso curso1 : listCurso ){
             if (curso1.getNombre().equals(curso.getNombre())){
                 System.out.println("no se puede añadir");
-            }else {
-                System.out.println("Se agrego el curso");
-                listCurso.add(curso);
+                return;
             }
         }
+        System.out.println("Se agrego el curso");
+        listCurso.add(curso);
+    }
+
+    public void agregarEstudiante(Estudiante estudiante){
+
+        if (estudiante == null){
+                System.out.println("No se puede agregar un estudiante que esta null");
+                return;
+            }
+        System.out.println("El estudiante se agrego coorrectamente");
+        listaEstudiantes.add(estudiante);
 
     }
+
+
 
 }
