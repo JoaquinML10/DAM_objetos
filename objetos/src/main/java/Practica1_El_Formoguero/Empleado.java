@@ -1,20 +1,22 @@
 package Practica1_El_Formoguero;
 
 public class Empleado {
+    final static private String IDE_PREDETERMINADO= "EP";
     final static private String valor_predeterminado_cargo = "pte";
+    private static int contador_IDE = 0;
     private String id;
     private String nombre;
     private String cargo;
     private Empleado director;
 
-    public Empleado(String id, String nombre, String cargo){
-        this.id = id;
+    public Empleado(String nombre, String cargo){
+        this.id = controlar_IDE();
         this.nombre = nombre;
-        this.cargo = cargo;
+        setCargo(cargo);
     }
 
-    public void controlar_Cargo(String cargo){
-        switch (cargo)
+    public String controlar_Cargo(String cargo){
+        switch (cargo.toLowerCase())
         {
             case "director":
                 cargo = "director";  
@@ -31,6 +33,15 @@ public class Empleado {
             default:
                 cargo = valor_predeterminado_cargo;
         }
+        if (cargo.equals("director")){
+            director = null;
+        }
+        return cargo;
+    }
+
+    private String controlar_IDE(){
+        contador_IDE ++;
+        return IDE_PREDETERMINADO + String.format("%03d", contador_IDE);
     }
 
     public String getId() {
@@ -54,7 +65,7 @@ public class Empleado {
     }
 
     public void setCargo(String cargo) {
-        this.cargo = cargo;
+        this.cargo = controlar_Cargo(cargo);
     }
 
     public Empleado getDirector() {
@@ -63,6 +74,9 @@ public class Empleado {
 
     public void setDirector(Empleado director) {
         this.director = director;
+        if (!this.cargo.equals("director")){
+            this.director = director;
+        }
     }
 
     @Override
