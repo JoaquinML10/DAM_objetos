@@ -1,26 +1,44 @@
 package Practica1_El_Formoguero;
 
-import java.time.LocalDate;
-import java.util.Scanner;
-
 public class AppProgramas {
-    static void main(String[] args) {
-        //creamos una cadena de tv
-        Cadena antena3 = new Cadena("Antena 3");
-        System.out.println(antena3);
-        //creamos un programa
-        Programa el_hormiguero = new Programa("El Hormiguero",antena3,"Director1");
-        System.out.println(el_hormiguero);
-        System.out.println(antena3);
-        //insertamos empleados en el programa
-        el_hormiguero.aniadir_empleado("Pablo Motos","presentador",null);
-        System.out.println(el_hormiguero);
-        //ver empleados del programa
-        System.out.println(el_hormiguero.getListaEmpleados());
-        //insertamos invitados en el programa
-        el_hormiguero.aniadir_invitado("Aitana","cantante",1);
-        //ver invitados del programa
-        System.out.println(el_hormiguero.getListaInvitados());
+
+    public static void main(String[] args) {
+
+        Cadena c1 = new Cadena("Antena 3");
+        Programa p1 = new Programa("El Hormiguero", c1, "Pablo");
+        Programa p2 = new Programa("La Rebelion", c1, "David");
+
+
+        p1.aniadir_empleado("Juan", "tecnico", null);
+        p1.aniadir_empleado("Maria", "presentador", null);
+
+        p2.aniadir_empleado("Luis", "colaborador", null);
+
+        p1.aniadir_invitado("Ana", "Actriz", 1);
+        p1.aniadir_invitado("Ana", "Actriz", 2);
+        p1.aniadir_invitado("Carlos", "Cantante", 1);
+
+        p2.aniadir_invitado("Ana", "Actriz", 1);
+
+        System.out.println("Invitados temporada 1 en p1");
+        p1.invitado_Tempoarada(1);
+
+        System.out.println("Veces que Ana vino a p1");
+        System.out.println(p1.vecesInvitado("Ana"));
+
+        System.out.println("Registrar Ana en p1");
+        p1.rastrearInvitado("Ana");
+
+        System.out.println("Fecha mas antigua de Ana en p1 ");
+        p1.invitadoAntes("Ana");
+
+        System.out.println("Mostrar cadena");
+        System.out.println(c1);
+        System.out.println();
+        System.out.println("Mostrar programas");
+        System.out.println(p1);
+        System.out.println(p2);
+
 
     }
 }

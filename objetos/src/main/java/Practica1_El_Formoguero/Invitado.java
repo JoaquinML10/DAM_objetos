@@ -1,6 +1,7 @@
 package Practica1_El_Formoguero;
 
 import java.time.LocalDate;
+import java.util.Scanner;
 
 public class Invitado {
 
@@ -9,11 +10,11 @@ public class Invitado {
     private LocalDate fecha_visita;
     private int temporada;
 
-    public Invitado(String nombre, String profesion, int temporada, LocalDate fecha_visita) {
+    public Invitado(String nombre, String profesion, int temporada) {
         this.nombre = nombre;
         this.profesion = profesion;
         this.temporada = temporada;
-        setFecha_visita(fecha_visita);
+        setFecha_visita();
     }
 
     public String getNombre() {
@@ -36,8 +37,15 @@ public class Invitado {
         return fecha_visita;
     }
 
-    public void setFecha_visita(LocalDate fecha_visita) {
-        this.fecha_visita = fecha_visita;
+    public void setFecha_visita() {
+        Scanner teclado = new Scanner(System.in);
+        System.out.println("Introduce el año en el que acudira " + nombre);
+        int año = teclado.nextInt();
+        System.out.println("Introdue tambien el mes");
+        int mes = teclado.nextInt();
+        System.out.println("Introduce el dia");
+        int dia = teclado.nextInt();
+        this.fecha_visita = LocalDate.of(año, mes, dia);
     }
 
     public int getTemporada() {
