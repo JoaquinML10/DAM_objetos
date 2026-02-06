@@ -1,0 +1,114 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+package Practica1_El_Formoguero {
+
+  class Cadena {
+    - nombre : String
+    - listaProgramas : ArrayList<Programa>
+    --
+    + Cadena(nombre : String)
+    + aniadirPrograma(programa : Programa) : void
+    + borrar_Programa(programa : Programa) : void
+    + getNombre() : String
+    + setNombre(nombre : String) : void
+    + getListaProgramas() : ArrayList<Programa>
+    + setListaProgramas(listaProgramas : ArrayList<Programa>) : void
+    + toString() : String
+  }
+
+  class Programa {
+    - nombre : String
+    - cadena : Cadena
+    - temporadas : int
+    - listaEmpleados : ArrayList<Empleado>
+    - listaInvitados : ArrayList<Invitado>
+    - director : Empleado
+    --
+    + Programa(nombre : String, cadena : Cadena, nombreDirector : String)
+    + invitado_Tempoarada(temporada : int) : void
+    + vecesInvitado(nombre : String) : int
+    + rastrearInvitado(nombre : String) : void
+    + buscarInvitado(nombre : String) : boolean
+    + invitadoAntes(nombre : String) : void
+    + aniadir_empleado(nombre : String, cargo : String, director : Empleado) : void
+    + borrar_Empleado(empleado : Empleado) : void
+    + aniadir_invitado(nombre : String, profesion : String, temporadas : int) : void
+    + borrar_Invitado(invitado : Invitado) : void
+    + getNombre() : String
+    + setNombre(nombre : String) : void
+    + getCadena() : Cadena
+    + setCadena(cadena : Cadena) : void
+    + getTemporadas() : int
+    + setTemporadas(temporadas : int) : void
+    + getListaEmpleados() : ArrayList<Empleado>
+    + setListaEmpleados(listaEmpleados : ArrayList<Empleado>) : void
+    + getListaInvitados() : ArrayList<Invitado>
+    + setListaInvitados(listaInvitados : ArrayList<Invitado>) : void
+    + getDirector() : Empleado
+    + setDirector(director : Empleado) : void
+    + toString() : String
+  }
+
+  class Empleado {
+    {static} - IDE_PREDETERMINADO : String
+    {static} - valor_predeterminado_cargo : String
+    {static} - contador_IDE : int
+    --
+    - id : String
+    - nombre : String
+    - cargo : String
+    - director : Empleado
+    --
+    + Empleado(nombre : String, cargo : String)
+    + controlar_Cargo(cargo : String) : String
+    - controlar_IDE() : String
+    + getId() : String
+    + setId(id : String) : void
+    + getNombre() : String
+    + setNombre(nombre : String) : void
+    + getCargo() : String
+    + setCargo(cargo : String) : void
+    + getDirector() : Empleado
+    + setDirector(director : Empleado) : void
+    + toString() : String
+  }
+
+  class Invitado {
+    - nombre : String
+    - profesion : String
+    - fecha_visita : LocalDate
+    - temporada : int
+    --
+    + Invitado(nombre : String, profesion : String, temporada : int)
+    + getNombre() : String
+    + setNombre(nombre : String) : void
+    + getProfesion() : String
+    + setProfesion(profesion : String) : void
+    + getFecha_visita() : LocalDate
+    + setFecha_visita() : void
+    + getTemporada() : int
+    + setTemporada(temporada : int) : void
+    + toString() : String
+  }
+
+  ' ===== Relaciones =====
+
+  ' Programa guarda referencia a su cadena
+  Programa "0..*" --> "0..1" Cadena : cadena
+
+  ' Cadena mantiene la lista de programas
+  Cadena "1" o-- "0..*" Programa : listaProgramas
+
+  ' Programa mantiene empleados e invitados en listas
+  Programa "1" o-- "1..*" Empleado : listaEmpleados
+  Programa "1" *-- "0..*" Invitado : listaInvitados
+
+  ' Director del programa (es un empleado)
+  Programa "1" --> "1" Empleado : director
+
+  ' Un empleado puede tener director (otro empleado)
+  Empleado "0..*" --> "0..1" Empleado : director
+}
+
+@enduml
