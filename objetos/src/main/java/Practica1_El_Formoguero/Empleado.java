@@ -57,6 +57,7 @@ public class Empleado {
     private String controlar_IDE(){
         contador_IDE ++;
         return IDE_PREDETERMINADO + String.format("%03d", contador_IDE); //juntamos el ide predeterminado y el contador automatico y se lo damos al constructor
+        //me ayudo chatgpt porque no sabia como poner los 000
     }
 
     public String getId() {
