@@ -17,7 +17,7 @@ public class Empleado {
         switch (cargo)
         {
             case "director":
-                cargo = "director";  
+                cargo = "director";
                 break;
             case "tecnico":
                 cargo = "tecnico";
