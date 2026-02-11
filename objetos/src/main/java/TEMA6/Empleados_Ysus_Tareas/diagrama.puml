@@ -1,15 +1,24 @@
 @startuml
-'https://plantuml.com/sequence-diagram
+package "TEMA6.Empleados_Ysus_Tareas" {
 
-autonumber
+    class Empleados {
+        +realizarTarea()
+    }
 
-== Initialization ==
+    class Diseniador {
+        +realizarTarea()
+    }
 
-Alice -> Bob: Authentication Request
-Bob --> Alice: Authentication Response
+    class Desarollador {
+        +realizarTarea()
+    }  
 
-== Repetition ==
+    class Gerente {
+        +realizarTarea()
+    }
 
-Alice -> Bob: Another authentication Request
-Alice <-- Bob: another authentication Response
+    Empleados <|-- Diseniador
+    Empleados <|-- Desarollador
+    Empleados <|-- Gerente
+}
 @enduml
