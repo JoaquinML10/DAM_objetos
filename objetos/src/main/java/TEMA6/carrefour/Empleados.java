@@ -24,7 +24,12 @@ public class Empleados {
 
         }
         fichar(manuel);
-        fichar(david  );
+        fichar(david);
+
+        jorge.trabajar();
+        david.trabajar();
+        manuel.trabajar();
+
     }
     public static void fichar(Persona persona){
 

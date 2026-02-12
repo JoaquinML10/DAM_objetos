@@ -11,7 +11,7 @@ package "TEMA6.Empleados_Ysus_Tareas" {
 
     class Desarollador {
         +realizarTarea()
-    }  
+    }
 
     class Gerente {
         +realizarTarea()

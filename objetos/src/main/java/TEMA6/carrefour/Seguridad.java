@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Seguridad extends Persona {
+
     static Scanner teclado = new Scanner(System.in);
+
     private String empresa;
     ArrayList<String> listaArmas;
 
@@ -40,6 +42,11 @@ public class Seguridad extends Persona {
         for (String armas:listaArmas){
             System.out.println(armas);
         }
+    }
+
+    @Override
+    public void trabajar() {
+        System.out.println("Vigilar a sospechosos");
     }
 
     @Override

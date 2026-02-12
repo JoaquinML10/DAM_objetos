@@ -1,4 +1,7 @@
 package TEMA6.Practica1;
 
-public class MetodoPago {
+public abstract class MetodoPago {
+
+    public abstract void procesarPago(double importe);
+
 }
