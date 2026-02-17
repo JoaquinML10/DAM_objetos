@@ -10,9 +10,18 @@ public class TarjetaCredito extends MetodoPago{
     public TarjetaCredito() {
         setNro_tarjeta();
         setTipo();
-        validarTarjeta();
     }
 
+
+    /**
+     * Valida los datos de la tarjeta
+     *
+     * Comprueba que la tarjeta tenga
+     * El número tenga 16 caracteres
+     * El tipo sea VISA, MASTERCARD y MAESTRO
+     *
+     * @return true si la tarjeta es válida y false si no lo es
+     */
     public boolean validarTarjeta(){
         boolean validar = true;
         if (nro_tarjeta.length() != 16){
@@ -23,6 +32,7 @@ public class TarjetaCredito extends MetodoPago{
         }else {
             validar = false;
         }
+        System.out.println("Validando tarjeta...");
         if (validar){
 
         }else {
@@ -52,8 +62,17 @@ public class TarjetaCredito extends MetodoPago{
         this.tipo = tipo;
     }
 
+    /**
+     * Procesa el pago con Tarjeta
+     * Muestra un mensaje si el pago
+     * se ha realizado correctamente
+     *
+     * @param importe la plata que va a pagar el usuario
+     */
     @Override
     public void procesarPago(double importe) {
+        System.out.println("Procesando pago de " + importe + " € con tarjeta de credito " + getTipo() );
+        System.out.println("Pago aceptado. Muchas gracias.");
     }
 
     @Override

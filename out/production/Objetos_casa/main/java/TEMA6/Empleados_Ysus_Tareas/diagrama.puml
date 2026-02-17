@@ -1,0 +1,24 @@
+@startuml
+package "TEMA6.Empleados_Ysus_Tareas" {
+
+    class Empleados {
+        +realizarTarea()
+    }
+
+    class Diseniador {
+        +realizarTarea()
+    }
+
+    class Desarollador {
+        +realizarTarea()
+    }
+
+    class Gerente {
+        +realizarTarea()
+    }
+
+    Empleados <|-- Diseniador
+    Empleados <|-- Desarollador
+    Empleados <|-- Gerente
+}
+@enduml

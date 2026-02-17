@@ -10,20 +10,48 @@ public class PayPal extends MetodoPago{
     private double saldo;
 
 
-    public PayPal(double saldo) {
+    public PayPal() {
         setCuenta();
         this.saldo = SALDO_POR_DEFECTO;
     }
 
-    public void validarPaypal(){
-        if (cuenta.matches("%@gmail.com")){
 
+    /**
+     * Valida los datos que le pasamos de la cuenta de paypal
+     *
+     * Comprueba que
+     * El correo tenga el formato que se le pide
+     * Y que el saldo sea suficiente para pagar
+     *
+     *
+     * @return true si los datos son correctos y false si hay algun error error
+     */
+    public boolean validarPaypal(double importe){
+        boolean validar = true;
+        System.out.println("Validando PayPal...");
+        if (!cuenta.matches("[A-Za-z0-9._%+-]+@gmail.com")){
+            System.out.println("Formato de correo incorrecto");
+            validar = false;
         }
+        if (importe > saldo){
+            System.out.println("No tienes saldo suficiente");
+            validar = false;
+        }
+        return validar;
     }
 
+
+    /**
+     * Procesa el pago con PayPal
+     * Muestra un mensaje si el pago
+     * se ha realizado correctamente
+     *
+     * @param importe la plata que va a pagar el usuario
+     */
     @Override
     public void procesarPago(double importe) {
-
+        System.out.println("Procesando pago de " + importe + " € con PayPal");
+        System.out.println("Pago aceptado. Muchas gracias.");
     }
 
     public String getCuenta() {

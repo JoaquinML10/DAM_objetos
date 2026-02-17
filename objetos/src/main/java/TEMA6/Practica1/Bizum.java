@@ -13,15 +13,29 @@ public class Bizum extends MetodoPago{
     public Bizum() {
         setTelefono();
         setPin();
-        validarBizum();
     }
 
-    public void validarBizum(){
+
+    /**
+     * Valida los datos de Bizum.
+     * Comprueba que el PIN introducido por el usuario
+     * sea el mismo que se genero automaticamente y que la
+     * la longitud del celular sea la correcta
+     *
+     * @return true si los datos son correctos y false si hay error
+     */
+    public boolean validarBizum(){
+        boolean validar = true;
         System.out.println("Introduce tu pin");
         int pin_usuario = teclado.nextInt();
-        if (pin_usuario != pin || telefono.length() != 16){
+        System.out.println("Validando Bizum...");
+
+        if (pin_usuario != pin || telefono.length() != 9){
             System.out.println("El pin que haz introducido o el telefono no es el correcto");
+            validar = false;
         }
+
+        return validar;
     }
 
     public String getTelefono() {
@@ -39,9 +53,11 @@ public class Bizum extends MetodoPago{
     }
 
     public void setPin() {
-        pin = aleatorio.nextInt(0,1000000);
+        pin = aleatorio.nextInt(100000,1000000);
         System.out.println("TU PIN ES: " + pin);
     }
+
+
 
     @Override
     public String toString() {
@@ -51,9 +67,16 @@ public class Bizum extends MetodoPago{
                 '}';
     }
 
+    /**
+     * Procesa el pago con Bizum
+     * Muestra un mensaje si el pago
+     * se ha realizado correctamente
+     *
+     * @param importe la plata que va a pagar el usuario
+     */
     @Override
     public void procesarPago(double importe) {
-
-
+        System.out.println("Procesando pago de " + importe + " € con Bizum" );
+        System.out.println("Pago aceptado. Muchas gracias.");
     }
 }
