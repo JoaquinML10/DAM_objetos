@@ -440,9 +440,9 @@ Tienda --> MetodoPago : usa
  ![Diagrama UML](UML_TEMA6_img.png)
 # Pruebas
 ## Bizum
-- Comprobando que funcione correctamente Bizum
+### Comprobando que funcione correctamente Bizum
 ![Funciona](Imagenes/bizum_true.png)
-- Probando el Telefono
+### Probando el Telefono
 ![Nofunciona](Imagenes/bizum_false_tel.png)
--Probando el pin
+### Probando el pin
 ![Nofunciona](Imagenes/bizum_false_pin.png)
