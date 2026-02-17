@@ -439,3 +439,6 @@ Tienda --> MetodoPago : usa
 ## Imagen del UML
  ![Diagrama UML](UML_TEMA6_img.png)
 # Pruebas
+##Bizum
+Comprobando que funcione correctamente Bizum
+![Funciona](Imagenes/bizum_true.png)
