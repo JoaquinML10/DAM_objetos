@@ -4,19 +4,17 @@
 
 # Índice
   1. [Introducción](#1-introduccion)
-  2. [Estructura del Proyecto](#estructura-del-proyecto)
+  2. [Estructura del Proyecto](#clases_del_proyecto)
   3. [Código](#codigo)
   4. [Diagrama UML](#diagrama-uml)
   5. [Pruebas](#pruebas)
 
 
-## 1. Introduccion
+# 1. Introduccion
 En esta práctica se ha desarrollado un sistema de pago para una tienda online de cursos de programación.  
 El sistema permite realizar pagos mediante distintos métodos: Tarjeta de Crédito, PayPal y Bizum.
 
-# Estructura del Proyecto
-
-### Clases del proyecto
+# Clases del proyecto
   
   - **MetodoPago**  
     Clase abstracta que define el método `procesarPago(double importe)`.  
