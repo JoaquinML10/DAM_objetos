@@ -5,7 +5,7 @@
 # Índice
   1. [Introducción](#1-introduccion)
   2. [Clases del proyecto](#clases-del-proyecto)
-  3. [Código](#codigo)
+  3. [Código de las clases](#contenido-de-las-clases)
   4. [Diagrama UML](#diagrama-uml)
   5. [Pruebas](#pruebas)
 
@@ -41,8 +41,17 @@ El sistema permite realizar pagos mediante distintos métodos: Tarjeta de Crédi
     Clase principal que ejecuta la aplicación llamando a:
     `Tienda.iniciarPago();`
     
-# Código
-
+# Contenido de las clases
+## MetodoPago
+  ````
+  package TEMA6.Practica1;
+  
+  public abstract class MetodoPago {
+  
+      public abstract void procesarPago(double importe);
+  
+  }
+  ````
 # Diagrama UML
 
 # Pruebas
