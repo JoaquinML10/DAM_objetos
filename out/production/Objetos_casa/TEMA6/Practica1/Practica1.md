@@ -454,3 +454,15 @@ Tienda --> MetodoPago : usa
 ![Nofunciona](Imagenes/paypal_false_gmail.png)
 ### Probando Saldo
 ![Nofunciona](Imagenes/paypal_false_saldo.png)
+
+## Tarjeta de Credito
+### Comprobando que funcione correctamente la Tarjeta
+![Funciona](Imagenes/tarjeta_true.png)
+### Probando Numero
+![Funciona](Imagenes/tarjeta_false_num.png)
+### Probando Tipo
+![Funciona](Imagenes/tarjeta_false_tipo.png)
+
+## Metodo
+### Probando Metodo Erroneo
+![Funciona](Imagenes/Metodo_false.png)
