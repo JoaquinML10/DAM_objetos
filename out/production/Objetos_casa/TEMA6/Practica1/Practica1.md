@@ -465,4 +465,4 @@ Tienda --> MetodoPago : usa
 
 ## Metodo
 ### Probando Metodo Erroneo
-![Funciona](Imagenes/Metodo_false.png)
+![Funciona](Imagenes/metodo_false.png)
