@@ -42,7 +42,7 @@ El sistema permite realizar pagos mediante distintos métodos: Tarjeta de Crédi
     `Tienda.iniciarPago();`
     
 # Contenido de las clases
-## MetodoPago
+** MetodoPago **
   ````
   package TEMA6.Practica1;
   
@@ -52,7 +52,7 @@ El sistema permite realizar pagos mediante distintos métodos: Tarjeta de Crédi
   
   }
   ````
-## Tienda
+** Tienda **
 ````
 package TEMA6.Practica1;
 
@@ -112,7 +112,7 @@ public class Tienda {
     }
 }
 ````
-##Bizum
+** Bizum **
 ````
 package TEMA6.Practica1;
 
@@ -198,7 +198,7 @@ public class Bizum extends MetodoPago{
 }
 ````
 
-##PayPal
+## PayPal
 ````
 package TEMA6.Practica1;
 
