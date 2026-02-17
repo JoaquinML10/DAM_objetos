@@ -437,5 +437,5 @@ Tienda --> MetodoPago : usa
 ````
 
 ## Imagen del UML
-![Diagrama UML](UML_TEMA6_img.png)
+ ![Diagrama UML](UML_TEMA6_img.png)
 # Pruebas
