@@ -446,3 +446,11 @@ Tienda --> MetodoPago : usa
 ![Nofunciona](Imagenes/bizum_false_tel.png)
 ### Probando el pin
 ![Nofunciona](Imagenes/bizum_false_pin.png)
+
+## PayPal
+### Comprobando que funcione correctamente PayPal
+![Funciona](Imagenes/paypal_true.png)
+### Probando Correo
+![Nofunciona](Imagenes/paypal_false_gmail.png)
+### Probando Saldo
+![Nofunciona](Imagenes/paypal_false_saldo.png)
