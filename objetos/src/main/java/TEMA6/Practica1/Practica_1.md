@@ -4,7 +4,7 @@
 
 # Índice
   1. [Introducción](#1-introduccion)
-  2. [Estructura del Proyecto](#clases_del_proyecto)
+  2. [Clases del proyecto](#clases-del-proyecto)
   3. [Código](#codigo)
   4. [Diagrama UML](#diagrama-uml)
   5. [Pruebas](#pruebas)
