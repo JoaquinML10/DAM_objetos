@@ -42,7 +42,7 @@ El sistema permite realizar pagos mediante distintos métodos: Tarjeta de Crédi
     `Tienda.iniciarPago();`
     
 # Contenido de las clases
-** MetodoPago **
+## MetodoPago 
   ````
   package TEMA6.Practica1;
   
@@ -52,7 +52,7 @@ El sistema permite realizar pagos mediante distintos métodos: Tarjeta de Crédi
   
   }
   ````
-** Tienda **
+## Tienda 
 ````
 package TEMA6.Practica1;
 
@@ -112,7 +112,7 @@ public class Tienda {
     }
 }
 ````
-** Bizum **
+## Bizum 
 ````
 package TEMA6.Practica1;
 
@@ -284,7 +284,7 @@ public class PayPal extends MetodoPago{
 }
 ````
 
-##Tarjeta Credito
+## Tarjeta Credito
 ````
 package TEMA6.Practica1;
 
@@ -374,7 +374,7 @@ public class TarjetaCredito extends MetodoPago{
 ````
 # Diagrama UML
 
-##Codigo UML
+## Codigo UML
 ````
 @startuml
 
@@ -436,5 +436,5 @@ Tienda --> MetodoPago : usa
 @enduml
 ````
 
-##Imagen del UML
+## Imagen del UML
 # Pruebas
