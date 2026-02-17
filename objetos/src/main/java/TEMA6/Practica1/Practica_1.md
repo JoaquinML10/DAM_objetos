@@ -15,7 +15,8 @@ En esta práctica se ha desarrollado un sistema de pago para una tienda online d
 El sistema permite realizar pagos mediante distintos métodos: Tarjeta de Crédito, PayPal y Bizum.
 
 # Estructura del Proyecto
-  ### Clases del proyecto
+
+### Clases del proyecto
   
   - **MetodoPago**  
     Clase abstracta que define el método `procesarPago(double importe)`.  
