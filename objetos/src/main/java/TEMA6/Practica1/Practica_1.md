@@ -374,4 +374,67 @@ public class TarjetaCredito extends MetodoPago{
 ````
 # Diagrama UML
 
+##Codigo UML
+````
+@startuml
+
+title Sistema de Pago - Ecommerce
+
+abstract class MetodoPago {
+    +procesarPago(importe : double) : void
+}
+
+class Tienda {
+    -teclado : Scanner
+    +realizarPago(metodo : MetodoPago) : void
+    +iniciarPago() : void
+}
+
+class PayPal {
+    -cuenta : String
+    -saldo : double
+    -SALDO_POR_DEFECTO : double
+    +PayPal()
+    +validarPaypal(importe : double) : boolean
+    +procesarPago(importe : double) : void
+    +getCuenta() : String
+    +setCuenta() : void
+    +getSaldo() : double
+    +setSaldo(saldo : double) : void
+}
+
+class TarjetaCredito {
+    -nro_tarjeta : String
+    -tipo : String
+    +TarjetaCredito()
+    +validarTarjeta() : boolean
+    +procesarPago(importe : double) : void
+    +getNro_tarjeta() : String
+    +setNro_tarjeta() : void
+    +getTipo() : String
+    +setTipo() : void
+}
+
+class Bizum {
+    -telefono : String
+    -pin : int
+    +Bizum()
+    +validarBizum() : boolean
+    +procesarPago(importe : double) : void
+    +getTelefono() : String
+    +setTelefono() : void
+    +getPin() : int
+    +setPin() : void
+}
+
+MetodoPago <|-- PayPal
+MetodoPago <|-- TarjetaCredito
+MetodoPago <|-- Bizum
+
+Tienda --> MetodoPago : usa
+
+@enduml
+````
+
+##Imagen del UML
 # Pruebas
