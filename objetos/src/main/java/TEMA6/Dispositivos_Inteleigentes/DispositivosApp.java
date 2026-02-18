@@ -64,7 +64,5 @@ public class DispositivosApp {
             dispositivo.apagar();
             dispositivo.mostrarestado();
         }
-
     }
-
 }
