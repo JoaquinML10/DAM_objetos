@@ -11,7 +11,7 @@ public class Acompaniante extends RiverPlate {
     }
 
     public void animarEquipo(){
-        System.out.println("!!!!River mi buen amigo, esta campaña volveremos a estar contigo, te alentaremos de corazon, esta es la hinchada que te quiere ver CAMPEON¡¡¡¡");
+        System.out.println(nombre + " Esta animando al equipo: !!!!River mi buen amigo, esta campaña volveremos a estar contigo, te alentaremos de corazon, esta es la hinchada que te quiere ver CAMPEON¡¡¡¡");
     }
 
     public String getParentesco() {
@@ -42,12 +42,12 @@ public class Acompaniante extends RiverPlate {
 
     @Override
     public void concentrarse() {
-        System.out.println("El acompañante esta concentrandose tomando agua");
+        System.out.println(nombre + " esta concentrandose tomando agua");
     }
 
     @Override
     public void viajar(String ciudad) {
-        System.out.println("El acompañante va a viajar a la ciudad: " + ciudad);
+        System.out.println(nombre + " va a viajar a la ciudad: " + ciudad + ", para apoyar a " + integrante.nombre);
     }
 
     @Override

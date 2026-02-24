@@ -7,12 +7,13 @@ public class Jugador extends RiverPlate implements AccionesDeportivas {
     private Integer dorsal;
     private Posiciones posicion;
     static ArrayList<Integer> listaDorsal = new ArrayList<>();
+    static ArrayList<Jugador> listaJugadores = new ArrayList<>();
 
     public Jugador(String nombre, int edad, Equipos categoria, Integer dorsal, Posiciones posicion) {
         super(nombre, edad);
         this.categoria = categoria;
         try {
-            setDorsal();
+            setDorsal(dorsal);
         }catch (DorsaLIgual e){
             System.out.println(e.getMessage());
         }
@@ -44,13 +45,12 @@ public class Jugador extends RiverPlate implements AccionesDeportivas {
         return dorsal;
     }
 
-    public void setDorsal() {
-        if (listaDorsal.contains(dorsal)){
-            throw new DorsaLIgual();
-        }else {
-            listaDorsal.add(dorsal);
-        }
-
+    public void setDorsal(Integer dorsal) {
+            if (listaDorsal.contains(dorsal)) {
+                 throw new DorsaLIgual();
+            } else {
+                listaDorsal.add(dorsal);
+            }
     }
 
     public Posiciones getPosicion() {

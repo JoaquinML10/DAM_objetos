@@ -9,9 +9,12 @@ public class Entrenador extends RiverPlate implements AccionesDeportivas  {
     public Entrenador(String nombre, int edad, Equipos equipos, String formacionPreferida) {
         super(nombre, edad);
         this.equipos = equipos;
-        this.formacionPreferida = formacionPreferida;
+        try {
+            setFormacionPreferida(formacionPreferida);
+        }catch (FormacionNoValida e){
+            System.out.println(e.getMessage());
+        }
     }
-
     public void planificarEntrenamiento(){
         System.out.println("El entrenador esta planificando el entrenamiento para pegarles a los rivales");
     }
@@ -32,7 +35,12 @@ public class Entrenador extends RiverPlate implements AccionesDeportivas  {
     }
 
     public void setFormacionPreferida(String formacionPreferida) {
-        this.formacionPreferida = formacionPreferida;
+        if (formacionPreferida.matches("\\d{1}-\\d{1}-\\d{1}")){
+            this.formacionPreferida = formacionPreferida;
+        }else {
+            throw new FormacionNoValida();
+        }
+
     }
 
     @Override
