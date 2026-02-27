@@ -151,17 +151,19 @@ public class AppMantenimiento {
                                 String nombre_aco = teclado.next();
                                 System.out.print("Pon la edad de tu acompañante: ");
                                 int edad_aco = teclado.nextInt();
-                                System.out.print("Pon a que jugador va a acompañar:");
+                                System.out.println("Pon a que jugador va a acompañar:");
                                 contador = 0;
                                 for (Jugador jugador1 : listaJugadores) {
-                                    System.out.print("[" + contador + ", Nombre: " + jugador1.getNombre() + ", Edad: " + jugador1.getEdad() + ", Categoria: " + jugador1.getCategoria() + ", Dorsal: " + jugador1.getDorsal() + ", Posicion: " + jugador1.getPosicion() + "]");
+                                    System.out.println("[" + contador + ", Nombre: " + jugador1.getNombre() + ", Edad: " + jugador1.getEdad() + ", Categoria: " + jugador1.getCategoria() + ", Dorsal: " + jugador1.getDorsal() + ", Posicion: " + jugador1.getPosicion() + "]");
                                     contador++;
                                 }
                                 int jugador_acompaniante = teclado.nextInt();
                                 System.out.print("Que parentesco tienes con el jugador:");
                                 String parentesco = teclado.next();
-                                if (listaJugadores.get(jugador_acompaniante).equals(Equipos.SENIOR)) {
+                                if (listaJugadores.get(jugador_acompaniante).getCategoria().equals(Equipos.SENIOR)) {
+                                    System.out.println("El acompañante se creo correctamente");
                                     Acompaniante acompaniante = new Acompaniante(nombre_aco, edad_aco, listaJugadores.get(jugador_acompaniante), parentesco);
+                                    System.out.println();
                                 }else {
                                     System.out.println("¡Lo siento! No puedes crear este acompañante porque el jugador no juega en SENIOR");
                                     System.out.println();
