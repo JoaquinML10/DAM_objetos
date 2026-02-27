@@ -6,19 +6,23 @@ public class Jugador extends RiverPlate implements AccionesDeportivas {
     private Equipos categoria;
     private Integer dorsal;
     private Posiciones posicion;
-    static ArrayList<Integer> listaDorsal = new ArrayList<>();
+
     static ArrayList<Jugador> listaJugadores = new ArrayList<>();
 
     public Jugador(String nombre, int edad, Equipos categoria, Integer dorsal, Posiciones posicion) {
+        boolean validar = true;
         super(nombre, edad);
         this.categoria = categoria;
         try {
             setDorsal(dorsal);
         }catch (DorsaLIgual e){
             System.out.println(e.getMessage());
+            validar = false;
         }
         this.posicion = posicion;
-
+        if (validar){
+            listaJugadores.add(this);
+        }
     }
 
     public void calentar(){
@@ -46,11 +50,20 @@ public class Jugador extends RiverPlate implements AccionesDeportivas {
     }
 
     public void setDorsal(Integer dorsal) {
-            if (listaDorsal.contains(dorsal)) {
-                 throw new DorsaLIgual();
-            } else {
-                listaDorsal.add(dorsal);
+        boolean dorsalvalido = true;
+        for (Jugador jugador : listaJugadores){
+            if (jugador.getDorsal() == dorsal){
+                if (jugador.getCategoria().equals(this.categoria)){
+                    dorsalvalido = false;
+                }
             }
+        }
+        if (dorsalvalido){
+            this.dorsal = dorsal;
+        }else {
+            throw new DorsaLIgual();
+        }
+
     }
 
     public Posiciones getPosicion() {
@@ -74,7 +87,7 @@ public class Jugador extends RiverPlate implements AccionesDeportivas {
 
     @Override
     public void concentrarse() {
-        System.out.println("El jugador: "+ nombre + " se esta concentrando");
+        System.out.println("El jugador: "+ nombre + " se esta concentrando bailando la macarena");
     }
 
     @Override

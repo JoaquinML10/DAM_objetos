@@ -11,8 +11,16 @@ public class Masajista extends RiverPlate{
         this.anosExperiencias = anosExperiencias;
     }
 
-    public void darMasaje(Jugador jugador){
-        System.out.println("El masajista le esta haciendo unos masjes muy buenos al jugador: " + jugador);
+    public void darMasaje(Jugador... jugador){
+        if (jugador.length == 1) {
+            System.out.println("El masajista: " + nombre + " le esta haciendo unos masjes muy buenos al jugador: " + jugador[0].getNombre());
+        }else {
+            System.out.println("El masajista: " + nombre + " le esta haciendo unos masjes muy buenos a los jugadores: ");
+            for (int i = 0; i < jugador.length; i++) {
+                System.out.println(jugador[i].getNombre());
+            }
+        }
+
     }
     public String getTitulacion() {
         return titulacion;
