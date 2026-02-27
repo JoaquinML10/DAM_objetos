@@ -3,7 +3,7 @@
 
 # Índice
   1. [Introducción](#1-introduccion)
-  2. [Clases del proyecto](#clases-del-proyecto)
+  2. [Clases del proyecto](#estructura_del_proyecto)
   3. [Código de las clases](#contenido-de-las-clases)
   4. [Diagrama UML](#diagrama-uml)
   5. [Pruebas](#pruebas)
@@ -12,8 +12,20 @@
 # 1. Introduccion
 Vamos a crear en esta practica una aplicacion para poder crear y modificar jugadores a tu gusto, en tu equipo.
 
-# Clases del proyecto
+# Estructura del proyecto
 
-    
-# Contenido de las clases
+# Clases normales del proyecto
 - **Jugador**
+- **Masajista**
+- **Acompañante**
+- **Entrenador**
+
+# Clases Abstractas
+- **RiverPlate**
+
+# Interfaces
+- **FuncionesIntegrantes**
+- **AccionesDeportivas**
+
+# Contenido de las clases
+
