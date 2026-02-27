@@ -1,9 +1,8 @@
 # Practica 2: Copa del Rey: Mutxamel FC vs Real Madrid
-# Índice
 
 # Índice
   1. [Introducción](#1-introduccion)
-  2. [Clases del proyecto](#estructura_del_proyecto)
+  2. [Estructura del proyecto](#estructura_del_proyecto)
   3. [Código de las clases](#contenido-de-las-clases)
   4. [Diagrama UML](#diagrama-uml)
   5. [Pruebas](#pruebas)
@@ -14,18 +13,22 @@ Vamos a crear en esta practica una aplicacion para poder crear y modificar jugad
 
 # Estructura del proyecto
 
-# Clases normales del proyecto
+## Clases normales del proyecto
 - **Jugador**
 - **Masajista**
 - **Acompañante**
 - **Entrenador**
 
-# Clases Abstractas
+## Clases Abstractas
 - **RiverPlate**
 
-# Interfaces
+## Interfaces
 - **FuncionesIntegrantes**
 - **AccionesDeportivas**
+
+## Enum
+- **Posiciones**
+- **Equipos**
 
 # Contenido de las clases
 
