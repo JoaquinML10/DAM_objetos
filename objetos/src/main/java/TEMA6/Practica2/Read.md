@@ -1,6 +1,5 @@
-# Practica 1: Sistema de pago para e-commerce
+# Practica 2: Copa del Rey: Mutxamel FC vs Real Madrid
 # Índice
-# Práctica 1: Sistema de pago para e-commerce
 
 # Índice
   1. [Introducción](#1-introduccion)
@@ -11,10 +10,10 @@
 
 
 # 1. Introduccion
-
+Vamos a crear en esta practica una aplicacion para poder crear y modificar jugadores a tu gusto, en tu equipo.
 
 # Clases del proyecto
-  
+
     
 # Contenido de las clases
-## MetodoPago 
+- **Jugador**
