@@ -1,6 +1,5 @@
 # Practica 1: Sistema de pago para e-commerce
 # Índice
-# Práctica 1: Sistema de pago para e-commerce
 
 # Índice
   1. [Introducción](#1-introduccion)
