@@ -11,24 +11,24 @@
 # 1. Introduccion
 Vamos a crear en esta practica una aplicacion para poder crear y modificar jugadores a tu gusto, en tu equipo.
 
-# Estructura del proyecto
+# 2. Estructura del proyecto
 
-## Clases normales del proyecto
-- **Jugador**
-- **Masajista**
-- **Acompañante**
-- **Entrenador**
-
-## Clases Abstractas
-- **RiverPlate**
-
-## Interfaces
-- **FuncionesIntegrantes**
-- **AccionesDeportivas**
-
-## Enum
-- **Posiciones**
-- **Equipos**
+  ### Clases normales del proyecto
+  - **Jugador**
+  - **Masajista**
+  - **Acompañante**
+  - **Entrenador**
+  
+  ### Clases Abstractas
+  - **RiverPlate**
+  
+  ### Interfaces
+  - **FuncionesIntegrantes**
+  - **AccionesDeportivas**
+  
+  ### Enum
+  - **Posiciones**
+  - **Equipos**
 
 # Contenido de las clases
 
