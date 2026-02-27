@@ -6,6 +6,14 @@ public class Entrenador extends RiverPlate implements AccionesDeportivas  {
 
     private String formacionPreferida;
 
+    /**
+     * Comprueba que la formacion que introdusca sea correcta llamando al set de formacion
+     * y lo comprueba el try catch
+     * @param nombre
+     * @param edad
+     * @param equipos
+     * @param formacionPreferida
+     */
     public Entrenador(String nombre, int edad, Equipos equipos, String formacionPreferida) {
         super(nombre, edad);
         this.equipos = equipos;
@@ -34,6 +42,11 @@ public class Entrenador extends RiverPlate implements AccionesDeportivas  {
         return formacionPreferida;
     }
 
+    /**
+     * Comprueba que la formacion que le pasate se correcta con un matches
+     * y si es incorrecta salta la excepcion
+     * @param formacionPreferida
+     */
     public void setFormacionPreferida(String formacionPreferida) {
         if (formacionPreferida.matches("\\d{1}-\\d{1}-\\d{1}")){
             this.formacionPreferida = formacionPreferida;

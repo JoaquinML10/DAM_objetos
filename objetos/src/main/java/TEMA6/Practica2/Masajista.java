@@ -11,10 +11,15 @@ public class Masajista extends RiverPlate{
         this.anosExperiencias = anosExperiencias;
     }
 
+    /**
+     * Le pasamos el jugador y como no sabemos cuantos jugadores
+     * le vamos a pasar le ponemos el ...
+     * @param jugador
+     */
     public void darMasaje(Jugador... jugador){
-        if (jugador.length == 1) {
-            System.out.println("El masajista: " + nombre + " le esta haciendo unos masjes muy buenos al jugador: " + jugador[0].getNombre());
-        }else {
+        if (jugador.length == 1) {//si la longitud de los Jugadores que le pasamos es igual a 1 (osea que solo le pasamos un parametro)
+            System.out.println("El masajista: " + nombre + " le esta haciendo unos masjes muy buenos al jugador: " + jugador[0].getNombre()); //busca como si fuera un vector en la primera posicion
+        }else {//si hay mas de un jugador usa un for para mostrar los jugadores
             System.out.println("El masajista: " + nombre + " le esta haciendo unos masjes muy buenos a los jugadores: ");
             for (int i = 0; i < jugador.length; i++) {
                 System.out.println(jugador[i].getNombre());

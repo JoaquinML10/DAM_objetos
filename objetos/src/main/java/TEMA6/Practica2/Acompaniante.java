@@ -45,6 +45,11 @@ public class Acompaniante extends RiverPlate {
         System.out.println(nombre + " esta concentrandose tomando agua");
     }
 
+    /**
+     * Le pasamos a la ciudad que va a viajar en acompañante
+     * y decimos a que jugador va a acompañar
+     * @param ciudad
+     */
     @Override
     public void viajar(String ciudad) {
         System.out.println(nombre + " va a viajar a la ciudad: " + ciudad + ", para apoyar a " + integrante.nombre);

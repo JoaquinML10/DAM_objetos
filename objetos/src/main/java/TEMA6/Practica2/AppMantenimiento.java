@@ -44,6 +44,10 @@ public class AppMantenimiento {
                         System.out.print("Selecciona una opcion -->  ");
                         op2 = teclado.next().toUpperCase().charAt(0);
                         switch (op2) {
+                            /**
+                             * Le preguntamos todos los datos del jugador nuevo que quiere crear
+                             * y si hay uno con el mismo numero salta la exepcion de la clase Jugador
+                             */
                             case '1':
                                 System.out.println("=== Mantenimiento de jugadores. Crea tu jugador a tu gusto ===");
                                 System.out.println();
@@ -66,7 +70,7 @@ public class AppMantenimiento {
                                 System.out.println("=== Mantenimiento de jugadores. Modificar datos de jugadores ===");
                                 System.out.println();
                                 System.out.println("¿De que jugador quieres hacer cambios?");
-                                int contador = 0;
+                                int contador = 0; // lo usamos para ver en que posicion en la lista estan los jugadores
                                 for (Jugador jugador1 : listaJugadores) {
                                     System.out.println("[" + contador + ", Nombre: " + jugador1.getNombre() + ", Edad: " + jugador1.getEdad() + ", Categoria: " + jugador1.getCategoria() + ", Dorsal: " + jugador1.getDorsal() + ", Posicion: " + jugador1.getPosicion() + "]");
                                     contador++;
@@ -94,8 +98,11 @@ public class AppMantenimiento {
                                 System.out.println();
                                 System.out.println("================================================================");
                                 System.out.println();
-                                System.out.print("Nuevo " + opcion + " --> ");
+                                System.out.print("Nuevo " + opcion + " --> "); //Le preguntamos que parte del jugador quiere modificar
                                 boolean cambio_con_exito = true;
+                                /**
+                                 * El usuario introduce el nuevo dato que le quiere modificar
+                                 */
                                 switch (opcion.toUpperCase()) {
                                     case "NOMBRE":
                                         String nuevo_nombre = teclado.next();
@@ -108,26 +115,26 @@ public class AppMantenimiento {
                                     case "CATEGORIA":
                                         Equipos categoria_nueva = Equipos.valueOf(teclado.next());
                                         for (Jugador jugador1 : listaJugadores) {
-                                            if (jugador1.getDorsal() == listaJugadores.get(eleccion).getDorsal()) {
-                                                if (jugador1.getCategoria().equals(categoria_nueva)) {
+                                            if (jugador1.getDorsal() == listaJugadores.get(eleccion).getDorsal()) {//compreuba que el numero que elejiste no tenga el mismo numero que otro jugador
+                                                if (jugador1.getCategoria().equals(categoria_nueva)) { //comprueba que el jugador no sea del mismo equipo
                                                     System.out.println("¡Lo siento! No puedes cambiar al jugador de categoria porque hay un jugador que tiene su mismo dorsal");
                                                     cambio_con_exito = false;
                                                 }
                                             }
                                         }
-                                        if (cambio_con_exito)
+                                        if (cambio_con_exito)//si esta todo correcto lo añade a la lista
                                             listaJugadores.get(eleccion).setCategoria(categoria_nueva);
                                         break;
                                     case "DORSAL":
                                         Integer dorsal_nuevo = teclado.nextInt();
                                         for (Jugador jugador1 : listaJugadores) {
-                                            if (jugador1.getDorsal() == dorsal_nuevo) {
-                                                if (jugador1.getCategoria().equals(listaJugadores.get(eleccion).getCategoria())) {
+                                            if (jugador1.getDorsal() == dorsal_nuevo) {//comprueba que el jugador no sea del mismo equipo
+                                                if (jugador1.getCategoria().equals(listaJugadores.get(eleccion).getCategoria())) {//compreuba que el numero que elejiste no tenga el mismo numero que otro jugador
                                                     System.out.println("¡Lo siento! Este dorsal ya esta ocupado por un jugador del mismo equipo (" + jugador1.getCategoria() + ")");
                                                     cambio_con_exito = false;
                                                 }
                                             }
-                                        }
+                                        } //si esta todo correcto lo añade a la lista
                                         if (cambio_con_exito) listaJugadores.get(eleccion).setDorsal(dorsal_nuevo);
                                         break;
                                     case "POSICION":
@@ -137,13 +144,16 @@ public class AppMantenimiento {
                                     default:
                                 }
                                 System.out.println();
-                                if (cambio_con_exito) {
+                                if (cambio_con_exito) {//si esta todo correcto te muestra al nuevo jugador y si no te saca del programa
                                     System.out.println("Jugador modificado con exito");
                                     System.out.println("[Nombre: " + listaJugadores.get(eleccion).getNombre() + ", Edad: " + listaJugadores.get(eleccion).getEdad() + ", Categoria: " + listaJugadores.get(eleccion).getCategoria() + ", Dorsal: " + listaJugadores.get(eleccion).getDorsal() + ", Posicion: " + listaJugadores.get(eleccion).getPosicion() + "]");
                                 } else {
                                     return;
                                 }
                                 break;
+                            /**
+                             * Te pregunta los datos del nuevo acompañante
+                             */
                             case '3':
                                 System.out.println("=== Mantenimiento de jugadores. Crear acompañante ===");
                                 System.out.println();
@@ -160,7 +170,7 @@ public class AppMantenimiento {
                                 int jugador_acompaniante = teclado.nextInt();
                                 System.out.print("Que parentesco tienes con el jugador:");
                                 String parentesco = teclado.next();
-                                if (listaJugadores.get(jugador_acompaniante).getCategoria().equals(Equipos.SENIOR)) {
+                                if (listaJugadores.get(jugador_acompaniante).getCategoria().equals(Equipos.SENIOR)) { //Si el jugador no es de la categoria SENIOR no lo añade
                                     System.out.println("El acompañante se creo correctamente");
                                     Acompaniante acompaniante = new Acompaniante(nombre_aco, edad_aco, listaJugadores.get(jugador_acompaniante), parentesco);
                                     System.out.println();

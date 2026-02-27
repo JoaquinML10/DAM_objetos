@@ -9,6 +9,15 @@ public class Jugador extends RiverPlate implements AccionesDeportivas {
 
     static ArrayList<Jugador> listaJugadores = new ArrayList<>();
 
+    /**
+     * En el constructor se valida si meter el jugador a la lista
+     * llamando al metodo set dorsal y comprobando con el try-catch
+     * @param nombre
+     * @param edad
+     * @param categoria
+     * @param dorsal
+     * @param posicion
+     */
     public Jugador(String nombre, int edad, Equipos categoria, Integer dorsal, Posiciones posicion) {
         boolean validar = true;
         super(nombre, edad);
@@ -49,6 +58,12 @@ public class Jugador extends RiverPlate implements AccionesDeportivas {
         return dorsal;
     }
 
+    /**
+     * Aqui le pasamos el dorsal y se fija si en la lista
+     * hay un jugador con el mismo dorsal, si lo hay comprueba de que no sean del mimso equipo
+     * Si hay un jugador con el mismo dorsal salta la excepcion dando error
+     * @param dorsal
+     */
     public void setDorsal(Integer dorsal) {
         boolean dorsalvalido = true;
         for (Jugador jugador : listaJugadores){
