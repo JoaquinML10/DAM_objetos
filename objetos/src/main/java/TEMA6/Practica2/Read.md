@@ -4,8 +4,9 @@
   1. [Introducción](#1-introduccion)
   2. [Estructura del proyecto](#2-estructura-del-proyecto)
   3. [Contenido de las clases](#3-contenido-de-las-clases)
-  4. [Diagrama UML](#diagrama-uml)
-  5. [Pruebas](#pruebas)
+  4. [Contenido de la clase Abstractas](#4-Contenido-de-la-clase-Abstractas)
+  5. [Contenido de las Interfaces](#5-contenido-de-las-Interfaces)
+  6. [Contenido del Enum](#6-Contenido-del-Enum)
 
 
 # 1. Introduccion
@@ -417,4 +418,89 @@ public class Masajista extends RiverPlate{
     }
 }
 
+````
+
+# 4. Contenido de la clase Abstractas
+
+# RiverPlate
+````
+package TEMA6.Practica2;
+
+public abstract class RiverPlate implements FuncionesIntegrantes{
+
+    protected String nombre;
+    protected int edad;
+
+    public RiverPlate(String nombre, int edad) {
+        this.nombre = nombre;
+        this.edad = edad;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+
+    @Override
+    public String toString() {
+        return "RiverPlate{" +
+                "nombre='" + nombre + '\'' +
+                ", edad=" + edad +
+                '}';
+    }
+}
+
+````
+
+# 5. Contenido de las Interfaces
+# Funciones Integrantes
+````
+package TEMA6.Practica2;
+
+public interface FuncionesIntegrantes {
+
+    void concentrarse();
+    void viajar(String ciudad);
+    void celebrarGol();
+}
+````
+# Acciones Deportivas
+````
+package TEMA6.Practica2;
+
+public interface AccionesDeportivas {
+
+    void entrenar();
+    void jugarPartido(String rival);
+}
+````
+
+# 6. Contenido del Enum
+# Posiciones
+````
+package TEMA6.Practica2;
+
+public enum Posiciones {
+    PORTERO,DEFENSA,CENTROCAMPISTA,DELANTERO;
+}
+````
+
+# Equipos
+````
+package TEMA6.Practica2;
+
+public enum Equipos {
+    BENJAMIN,ALEVIN,INFANTIL,CADETE,JUVENIL,SENIOR;
+}
 ````
