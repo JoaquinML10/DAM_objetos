@@ -22,6 +22,7 @@ public class Ejercicio_Olimpiadas {
                 char[] parentesis = {'(',')','[',']','{','}'};
                 ArrayList<String> listapare = new ArrayList<>();
                 listapare.add(frase);
+
                 for (int i = 0; i < frase.length(); i++) {
                     char signo = frase.charAt(i);
                     if (listapare.contains(parentesis)){
