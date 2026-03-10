@@ -1,8 +1,13 @@
 package TEMA7.Ejercicios.FuncionarioyAceptaElReto;
 
+import java.util.HashSet;
+import java.util.Set;
+import java.util.Stack;
+
 public class InformeApp {
+    static Stack<Informe> pila = new Stack<>();
     static void main(String[] args) {
-        PilaInforme pilaInforme = new PilaInforme();
+
 
         Informe informe1 = new Informe(1, Tipo.ADMINISTRATIVO);
         Informe informe2 = new Informe(2, Tipo.EMPRESARIAL);
@@ -10,19 +15,24 @@ public class InformeApp {
         Informe informe4 = new Informe(4, Tipo.EMPRESARIAL);
         Informe informe5 = new Informe(5, Tipo.ADMINISTRATIVO);
 
-        pilaInforme.aniadirInforme(informe1);
-        pilaInforme.aniadirInforme(informe2);
-        pilaInforme.aniadirInforme(informe3);
-        pilaInforme.aniadirInforme(informe4);
-        pilaInforme.aniadirInforme(informe5);
+        pila.push(informe1);
+        pila.push(informe2);
+        pila.push(informe3);
+        pila.push(informe4);
+        pila.push(informe5);
+
 
         System.out.println("Lista de informes");
-        pilaInforme.mostrarInformes();
+        for (Informe informe: pila){
+            System.out.println("Este es el informe: " + informe.getCodigo() + ", con la descripcion: " + informe.getDescripcion());
+        }
 
         System.out.println("Eliminando informes y mostrando");
-        while (!pilaInforme.pila.isEmpty()){
-            pilaInforme.quitarInfomr();;
-            pilaInforme.mostrarInformes();
+        while (!pila.isEmpty()){
+            System.out.println(pila.pop());
+            for (Informe informe: pila){
+                System.out.println("Este es el informe: " + informe.getCodigo() + ", con la descripcion: " + informe.getDescripcion());
+            }
         }
 
         Informe informe6 = new Informe(6, Tipo.ADMINISTRATIVO);
@@ -30,20 +40,31 @@ public class InformeApp {
         Informe informe8 = new Informe(7, Tipo.PERSONAL);
 
 
-        pilaInforme.aniadirInforme(informe6);
-        pilaInforme.aniadirInforme(informe7);
-        pilaInforme.aniadirInforme(informe8);
-
+        pila.push(informe6);
+        pila.push(informe7);
+        pila.push(informe8);
         System.out.println("Eliminando informes y mostrando");
-        while (!pilaInforme.pila.isEmpty()){
-            pilaInforme.quitarInfomr();;
-            pilaInforme.mostrarInformes();
+        while (!pila.isEmpty()){
+            System.out.println(pila.pop());
+            for (Informe informe: pila){
+                System.out.println("Este es el informe: " + informe.getCodigo() + ", con la descripcion: " + informe.getDescripcion());
+            }
         }
-        pilaInforme.aniadirInforme(informe6);
-        pilaInforme.aniadirInforme(informe7);
-        pilaInforme.aniadirInforme(informe8);
+        pila.push(informe6);
+        pila.push(informe7);
+        pila.push(informe8);
         System.out.println("Contar tareas");
-        System.out.println(pilaInforme.contarTiposTarea());
+        System.out.println(contarTiposTarea());
 
+    }
+
+    public static int contarTiposTarea() {
+        Set<String> tipos = new HashSet<>();
+
+        for (Informe informe : pila) {
+            tipos.add(informe.getCodigo() + ", " + informe.getDescripcion());
+        }
+
+        return tipos.size();
     }
 }

@@ -5,7 +5,6 @@ import java.util.Stack;
 public class Informe {
     private int codigo;
     private Tipo descripcion;
-    static Stack<Informe> pila = new Stack<>();
 
     public Informe(int codigo, Tipo descripcion) {
         this.codigo = codigo;
