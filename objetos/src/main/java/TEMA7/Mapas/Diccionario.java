@@ -1,27 +1,59 @@
 package TEMA7.Mapas;
 
-import java.util.HashMap;
+import java.util.*;
 
 public class Diccionario {
+
+    static Scanner teclado = new Scanner(System.in);
     static HashMap<String,String> mapa = new HashMap<>();
+    static Random aleatorio = new Random();
+    static int correcto = 0;
+    static int preguntas = 0;
+    static ArrayList<String> listaesp  =new ArrayList<>();
     static void main(String[] args) {
             llamarApar();
         System.out.println("Bienvenido al juego del diccionario SIUUUUUUUUUUUUUUUUUU");
-        while (true){
-                 
-        }
+            while (true) {
+                String espa = palabraAleatoria();
+                String inglish = traduce(espa);
+                System.out.println(espa + ": " + primeraLetraTraduccion(inglish) + "...");
+                System.out.print("Indique la respuesta correcta: ");
+                String palabra = teclado.next().toLowerCase();
+
+                if (mapa.containsValue(palabra)) {
+                    System.out.println("¡CORRECTO!");
+                    correcto++;
+                } else if (palabra.equals("fin")) {
+                    break;
+                } else {
+                    System.out.println("¡NO! La respuesta correcta es: " + inglish);
+                }
+                preguntas++;
+            }
+        System.out.println("FIN DEL PROGRAMA");
+        System.out.println("Total de preguntas: " + preguntas);
+        System.out.println("Total de aciertos: " + correcto);
+        System.out.println("Total de errores: " + (preguntas-correcto));
+        System.out.println("Aciertos: " + ((correcto*100) / preguntas) + "%");
     }
     static public void nuevoPar(String esp, String inglish){
         mapa.put(esp,inglish);
-    }
-    static public void traduce(){
 
+        for (Map.Entry<String,String> mapita : mapa.entrySet()){
+            listaesp.add(mapita.getKey());
+        }
     }
-    static public void palabraAleatoria(){
+    static public String traduce(String esp){
 
+        return mapa.get(esp);
     }
-    static public void primeraLetraTraduccion(){
+    static public String palabraAleatoria(){
 
+        return listaesp.get(aleatorio.nextInt(0,listaesp.size()));
+    }
+    static public char primeraLetraTraduccion(String inglish){
+
+        return inglish.toUpperCase().charAt(0);
     }
     static public void llamarApar(){
         nuevoPar("casa", "house");
