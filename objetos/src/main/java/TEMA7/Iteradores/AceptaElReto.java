@@ -29,7 +29,7 @@ public class AceptaElReto {
                             }
                         }
                         break;
-                    case '3':   
+                    case '3':
                         if (it.hasNext()){
                             it.next();
                             it.remove();
