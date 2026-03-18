@@ -1,9 +1,6 @@
 package TEMA7.Comparables;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class CumpleApp {
     static void main(String[] args) {
@@ -16,6 +13,19 @@ public class CumpleApp {
         Collections.sort(invitados, new OrdenarPorEdadNombreHora().reversed());
 
         System.out.println(invitados);
+
+        TreeMap<Invitado,String> mapaInvitados = new TreeMap<>(Comparator.reverseOrder());
+
+        mapaInvitados.put(new Invitado(10, "Jacobo"),"Raqueta");
+        mapaInvitados.put(new Invitado(14, "David"),"500€");
+        mapaInvitados.put(new Invitado(14, "Joaquin"),"Charla con Milei");
+
+        List<Map.Entry<Invitado,String>> listaMapa = new ArrayList<>(mapaInvitados.entrySet());
+
+        listaMapa.sort(Map.Entry.comparingByKey());
+        for (Map.Entry<Invitado, String> mapita : listaMapa){
+            System.out.println(mapita.getKey().getNombre() + " " + mapita.getValue());
+        }
 
     }
 }
