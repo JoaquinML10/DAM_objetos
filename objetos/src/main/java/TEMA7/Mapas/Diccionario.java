@@ -3,45 +3,37 @@ package TEMA7.Mapas;
 import java.util.*;
 
 public class Diccionario {
-
-    static Scanner teclado = new Scanner(System.in);
-    static HashMap<String,String> mapa = new HashMap<>();
+    static private HashMap<String,String> mapa = new HashMap<>();
     static Random aleatorio = new Random();
     static int correcto = 0;
     static int preguntas = 0;
-    static ArrayList<String> listaesp  =new ArrayList<>();
-    static void main(String[] args) {
-            llamarApar();
-        System.out.println("Bienvenido al juego del diccionario SIUUUUUUUUUUUUUUUUUU");
-            while (true) {
-                String espa = palabraAleatoria();
-                String inglish = traduce(espa);
-                System.out.println(espa + ": " + primeraLetraTraduccion(inglish) + "...");
-                System.out.print("Indique la respuesta correcta: ");
-                String palabra = teclado.next().toLowerCase();
+    static private ArrayList<String> listaesp  =new ArrayList<>();
 
-                if (mapa.containsValue(palabra)) {
-                    System.out.println("¡CORRECTO!");
-                    correcto++;
-                } else if (palabra.equals("fin")) {
-                    break;
-                } else {
-                    System.out.println("¡NO! La respuesta correcta es: " + inglish);
-                }
-                preguntas++;
-            }
-        System.out.println("FIN DEL PROGRAMA");
-        System.out.println("Total de preguntas: " + preguntas);
-        System.out.println("Total de aciertos: " + correcto);
-        System.out.println("Total de errores: " + (preguntas-correcto));
-        System.out.println("Aciertos: " + ((correcto*100) / preguntas) + "%");
+    public Diccionario() {
+        mapa = new HashMap<>();
+        listaesp = new ArrayList<>();
     }
+
+    public static HashMap<String, String> getMapa() {
+        return mapa;
+    }
+
+    public static void setMapa(HashMap<String, String> mapa) {
+        Diccionario.mapa = mapa;
+    }
+
+    public static ArrayList<String> getListaesp() {
+        return listaesp;
+    }
+
+    public static void setListaesp(ArrayList<String> listaesp) {
+        Diccionario.listaesp = listaesp;
+    }
+
     static public void nuevoPar(String esp, String inglish){
         mapa.put(esp,inglish);
 
-        for (Map.Entry<String,String> mapita : mapa.entrySet()){
-            listaesp.add(mapita.getKey());
-        }
+
     }
     static public String traduce(String esp){
 
@@ -49,7 +41,10 @@ public class Diccionario {
     }
     static public String palabraAleatoria(){
 
-        return listaesp.get(aleatorio.nextInt(0,listaesp.size()));
+        String palabra  = listaesp.get(aleatorio.nextInt(0,listaesp.size()));
+
+        listaesp.remove(palabra);
+        return palabra;
     }
     static public char primeraLetraTraduccion(String inglish){
 
@@ -159,5 +154,8 @@ public class Diccionario {
         nuevoPar("triste", "sad");
         nuevoPar("facil", "easy");
         nuevoPar("dificil", "difficult");
+        for (Map.Entry<String,String> mapita : mapa.entrySet()){
+            listaesp.add(mapita.getKey());
+        }
     }
 }
