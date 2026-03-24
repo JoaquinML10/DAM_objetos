@@ -3,19 +3,16 @@ package TEMA7.Practica1;
 import java.util.HashMap;
 
 public class Pedido {
-    private HashMap<Producto, Integer> pedido = new HashMap<>();
+    private HashMap<Producto, Integer> pedido;
     private double importeTotal;
 
-    public Pedido(HashMap<Producto, Integer> pedido, double importeTotal) {
-        this.pedido = pedido;
-        this.importeTotal = importeTotal;
-    }
     public Pedido(){
-
+        this.pedido  = new HashMap<>();
+        this.importeTotal = 0;
     }
 
     public void actualizarImporteTotal(double importe){
-
+        setImporteTotal(importe);
     }
     public void aplicarPromo3x2(){
 
@@ -37,7 +34,7 @@ public class Pedido {
     }
 
     public void setImporteTotal(double importeTotal) {
-        this.importeTotal = importeTotal;
+        this.importeTotal += importeTotal;
     }
 
     @Override
@@ -47,4 +44,5 @@ public class Pedido {
                 ", importeTotal=" + importeTotal +
                 '}';
     }
+
 }

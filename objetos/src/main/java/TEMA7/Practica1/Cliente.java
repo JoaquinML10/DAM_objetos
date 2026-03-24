@@ -10,16 +10,20 @@ public class Cliente {
     public Cliente(String usuario, String contrasenya) {
         this.usuario = usuario;
         this.contrasenya = contrasenya;
-        this.direccion = direccion;
-        this.pedido = pedido;
-        this.promociones = promociones;
+        this.direccion = "Calle falsa, 123";
+        this.pedido = null;
+        this.promociones = false;
     }
 
     public void crearPedido(){
-
+        this.pedido = new Pedido();
     }
     public void insertarProducto(Producto producto){
-
+        if (pedido.getPedido().containsKey(producto)){
+            pedido.getPedido().put(producto, pedido.getPedido().get(producto) + 1);
+        }else {
+            pedido.getPedido().put(producto,1);
+        }
     }
     public String getUsuario() {
         return usuario;

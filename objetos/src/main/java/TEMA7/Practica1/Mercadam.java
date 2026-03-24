@@ -1,9 +1,6 @@
 package TEMA7.Practica1;
 
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class Mercadam {
     private Set<Cliente> clientes = new HashSet<>();
@@ -13,8 +10,23 @@ public class Mercadam {
         this.clientes = clientes;
     }
 
-    public void generarClientes(){
+    public void generarClientes(int num){
+        Random aleatorio = new Random();
+        String caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
+
+        for (int i = 0; i < num; i++) {
+            String usuario = "";
+            String contrasenia = "";
+            for (int j = 0; j < 8; j++) {
+                usuario += caracteres.charAt(aleatorio.nextInt(0,caracteres.length()));
+                contrasenia += caracteres.charAt(aleatorio.nextInt(0,caracteres.length()));
+            }
+            Cliente cliente = new Cliente(usuario, contrasenia);
+            clientes.add(cliente);
+        }
+
+        System.out.println(clientes);
     }
 
     public Set<Cliente> getClientes() {
