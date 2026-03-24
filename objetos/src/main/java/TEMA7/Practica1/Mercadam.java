@@ -6,7 +6,7 @@ public class Mercadam {
     private Set<Cliente> clientes = new HashSet<>();
 
     public Mercadam() {
-        
+
         this.clientes = clientes;
     }
 
