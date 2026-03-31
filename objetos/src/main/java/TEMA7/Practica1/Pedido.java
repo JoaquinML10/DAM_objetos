@@ -1,8 +1,10 @@
 package TEMA7.Practica1;
 
+import java.util.Comparator;
 import java.util.HashMap;
+import java.util.Map;
 
-public class Pedido {
+public class Pedido implements Comparator<Map.Entry<Producto,Integer>> {
     private HashMap<Producto, Integer> pedido;
     private double importeTotal;
 
@@ -15,10 +17,21 @@ public class Pedido {
         setImporteTotal(importe);
     }
     public void aplicarPromo3x2(){
+        double total = 0;
+        for (Map.Entry<Producto, Integer> entry : pedido.entrySet()){
+            Producto producto = entry.getKey();
+            int cantidad = entry.getValue();
 
+            int gratis = cantidad / 3;
+            int cantidadAPagar = cantidad - gratis;
+
+            total += cantidadAPagar * producto.getPrecio();
+        }
+
+        this.importeTotal = total;
     }
     public void aplicarPromo10(){
-
+        this.importeTotal = importeTotal * 0.9;
     }
 
     public HashMap<Producto, Integer> getPedido() {
@@ -45,4 +58,8 @@ public class Pedido {
                 '}';
     }
 
+    @Override
+    public int compare(Map.Entry<Producto, Integer> o1, Map.Entry<Producto, Integer> o2) {
+        return o2.getValue().compareTo(o1.getValue());
+    }
 }

@@ -1,8 +1,6 @@
 package TEMA7.Practica1;
 
-import java.util.Map;
-import java.util.Scanner;
-import java.util.Set;
+import java.util.*;
 
 public class AppZonaClientes {
     static Cliente cliente;
@@ -17,6 +15,7 @@ public class AppZonaClientes {
         autenticacion(mercadam.getClientes());
 
         iniciarCompra();
+        mostrarOpciones();
     }
 
     static void autenticacion(Set<Cliente> clientes){
@@ -96,14 +95,64 @@ public class AppZonaClientes {
 
         System.out.println("=== RESUMEN DE TU CARRITO DE LA COMPRA ===");
         System.out.println("Productos");
-        for (Map.Entry<Producto, Integer> mapita  : cliente.getPedido().getPedido().entrySet()){
-            System.out.println(mapita.getValue() + " " + mapita.getKey() + " " + mapita.getKey().getPrecio());
-        }
+        mostrarLista();
     }
     static void imprimirDespedida(){
 
+        System.out.println("==== GRACIAS POR SU PEDIDO ====");
+        System.out.println("Lo recibira en unos dias en la direccion " + cliente.getDireccion());
     }
     static void mostrarOpciones(){
+        boolean terminar = true;
+        while (terminar) {
+            System.out.println();
+            System.out.println("===================");
+            System.out.println("¿Que deseas hacer?");
+            System.out.println("[1]. Aplicar promos.");
+            System.out.println("[2]. Mostrar resumen ordenado por uds.");
+            System.out.println("[3]. Terminar pedido.");
+            System.out.print("Elije una opcion: ");
+            int op = teclado.nextInt();
+            switch (op) {
+                case 1:
+                    if (cliente.isPromociones()) {
+                        System.out.println("El cliente no puede aplicar ninguna promo porque ya la gasto");
+                    } else {
+                        cliente.getPedido().aplicarPromo3x2();
+                        cliente.getPedido().aplicarPromo10();
+                        cliente.setPromociones(true);
+                        System.out.println("====================================");
+                        System.out.println("PROMO 3x2 y 10% DESC. APLICADAS");
+                        System.out.println("====================================");
 
+                        System.out.println("=== RESUMEN DE TU CARRITO DE LA COMPRA ===");
+                        System.out.println("Productos:");
+
+                        mostrarLista();
+                    }
+                    break;
+                case 2:
+                    List<Map.Entry<Producto, Integer>> listaOrdenada = new ArrayList<>(cliente.getPedido().getPedido().entrySet());
+                    listaOrdenada.sort(cliente.getPedido());
+                    System.out.println("Productos ordenados por uds: ");
+                    for (Map.Entry<Producto, Integer> mapita : listaOrdenada) {
+                        System.out.println(mapita.getValue() + " " + mapita.getKey() + " " + mapita.getKey().getPrecio());
+                    }
+                    System.out.println("IMPORTE TOTAL: " + cliente.getPedido().getImporteTotal() + "€");
+                    break;
+                case 3:
+                    imprimirDespedida();
+                    terminar = false;
+                    break;
+
+                default:
+            }
+        }
+    }
+    static void mostrarLista(){
+        for (Map.Entry<Producto, Integer> mapita  : cliente.getPedido().getPedido().entrySet()){
+            System.out.println(mapita.getValue() + " " + mapita.getKey() + " " + mapita.getKey().getPrecio());
+        }
+        System.out.println("IMPORTE TOTAL: " + cliente.getPedido().getImporteTotal() + "€");
     }
 }
