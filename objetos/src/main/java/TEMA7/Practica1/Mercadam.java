@@ -7,9 +7,15 @@ public class Mercadam {
 
     public Mercadam() {
 
-        this.clientes = clientes;
+        this.clientes = new HashSet<>();
     }
 
+
+    /**
+     * Le pasamos el numero de cuantos clientes quiere crear
+     * y genera aleatoriamente un usuario y una contraseña
+     * @param num
+     */
     public void generarClientes(int num){
         Random aleatorio = new Random();
         String caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";

@@ -15,9 +15,17 @@ public class Cliente {
         this.promociones = false;
     }
 
+    /**
+     * crea un nuevo pedido
+     */
     public void crearPedido(){
         this.pedido = new Pedido();
     }
+
+    /**
+     * Añade un producto al pedido
+     * y si ya existe se le hace un mas 1 al pedido
+     */
     public void insertarProducto(Producto producto){
         if (pedido.getPedido().containsKey(producto)){
             pedido.getPedido().put(producto, pedido.getPedido().get(producto) + 1);
